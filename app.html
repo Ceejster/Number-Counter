@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>JS Coding Practice</title>
+    <title>Quick Count</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,7 +18,7 @@
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">JS Project</a>
+        <a class="navbar-brand" href="index.html">Quick Count</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -44,28 +44,75 @@
 
 <main class="flex-shrink-0">
     <div class="container">
-        <h1 class="mt-5">App</h1>
-        <p class="lead">I'll put the working app here</p>
+        <div class="row row-cols-1 row-cols-lg-2 mt-5">
+            <!--Column left-->
+            <div class="col border-end border-2">
+                <h1>
+                    Quick Count: JS Practice
+                </h1>
+                <h4 class="lead">
+                    Printing the range selected and bolding all of the even numbers.
+                </h4>
+                <h2 class="mt-5 border-bottom border-2">
+                    Instructions
+                </h2>
+                <p>
+                    Enter a starting and a ending value. Press the value for everything within the range to be printed.
+                </p>
+            </div>
+            <!--Column right-->
+            <div class="col">
+                <div>
+                    <h4>
+                        Enter Values:
+                    </h4>
+                    <form class="row gy-2 gx-2">
+                        <div class="col">
+                            <input id="startValue" type="number" class="form-control" placeholder="Starting value" value="0" aria-label="Start value">
+                        </div>
+                        <div class="col">
+                            <input id="endValue" type="number" class="form-control" placeholder="Ending value" value="10" aria-label="Ending value">
+                        </div>
+                        <div class="col-12 d-flex justify-content-end mt-2">
+                            <button id="btnSubmit" class="btn btn-outline-dark" type="button">Count 'Em!</button>
+                        </div>
+                    </form>
+                    <h2 class="mt-2 border-bottom border-2">
+                        Results
+                    </h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm">
+                            <tbody id="results">
+                                <!--JS Results here-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
  </main>
 
- <footer class="footer mt-auto py-3">
+<footer class="footer mt-auto py-3">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col text-light d-flex align-items-center justify-content-start">
+        <div class="row row-cols-1 row-cols-md-3 gy-2">
+            <!--TM-->
+            <div class="col order-last order-md-first text-light d-flex align-items-center justify-content-start">
                 <div>
                     <span class="text-muted">&copy;2024 CJ Bowman | CJBowman@live.com</span>
                 </div>
             </div>
-            <div class="col d-flex align-items-center justify-content-center">
+            <!--Logo-->
+            <div class="col d-flex align-items-center justify-content-start justify-content-md-center text-light">
                 <img src="css/images/Sessions logo.PNG" alt="filler logo" height="24">
             </div>
-            <div class="col d-flex align-items-center justify-content-end">
+            <!--Icons-->
+            <div class="col d-flex align-items-center justify-content-start justify-content-md-end">
                 <div class="row">
-                    <div class="col">
+                    <div class="social col">
                         <a href="https://www.linkedin.com/in/cj-bowman-1bbb1890/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
                     </div>
-                    <div class="col">
+                    <div class="social col">
                         <a href="https://github.com/ceejster" target="_blank"><i class="fab fa-github fa-2x"></i></a>
                     </div>
                 </div>
@@ -79,6 +126,9 @@
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
     </script>
     <script src="js/script.js"></script>
+    <script>
+        document.getElementById("btnSubmit").addEventListener("click", getValues);
+    </script>
 </body>
 
 </html>

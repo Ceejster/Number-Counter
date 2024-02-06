@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>JS Coding Practice</title>
+    <title>Quick Count</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,7 +19,7 @@
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">JS Project</a>
+        <a class="navbar-brand" href="index.html">Quick Count</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -45,43 +45,125 @@
 
 <main class="flex-shrink-0">
     <div class="container py-5 px-5">
-        <h2 class="border-1 border-bottom border-dark">
-            The Code for NAME
+        <h2 class="border-1 pt-5 border-bottom border-dark">
+            The Code for Quick Count
         </h2>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2">
             <div class="col-lg-8">
-                <pre class="line-numbers"><code class="language-javascript">function HelloWorld() {
-    alert("Hello World");
-}                
+                <pre class="line-numbers"><code class="language-javascript">//get values from the page
+//start or controller function
+function getValues() {
+    //page values
+    let startValue = document.getElementById("startValue").value;
+    let endValue = document.getElementById("endValue").value;
+
+    //parce value into ints
+    startValue = parseInt(startValue);
+    endValue = parseInt(endValue);
+
+    if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+        //call generateNums
+        let numbers = generateNums(startValue, endValue);
+        //call displayNum
+        displayNums(numbers);
+    } else {
+        alert("Can only enter numbers");
+    }  
+}
+
+//generate the numbers form start to end value
+//logic
+function generateNums(startVal, endVal) {
+    let numbers = [];
+
+    for (let i = startVal; i <= endVal; i++) {
+        numbers.push(i);
+    }
+
+    return numbers;
+}
+
+//display nums and print even bold
+//view function
+function displayNums(nums) {
+    let templatRows = "";
+    let className = "even";
+
+    for (let i = 0; i < nums.length; i++) {
+        let num = nums[i];
+
+        if (num % 2 == 0) {
+            className = "even"
+        } else {
+            className = "odd";
+        }
+        templatRows += `<tr><td class="${className}">${num}</td></tr>`;
+    }
+
+    document.getElementById("results").innerHTML = templatRows;
+}               
 </code>
                 </pre>
             </div>
             <div class="col-lg-4">
-                <p>The Code Title</p>
-                <h5>Hello world</h5>
-                <p>Hello world function that alerts user</p>
+                <h4>JS Code</h4>
+                <br>
+                <h5>getValues() {</h5>
+                <p>
+                    Here we are pulling our values that are being inputed into the HTML and making them useable for JS.
+                    The numbers are also being parsed just to be sure no other values can be inserted. If that is successful,
+                    we are then calling <strong>generateNums</strong>.
+                    <br>
+                    Once generateNums is passed and has its array filled out, it moves onto <strong>displayNums</strong> to fill the table.
+                    <h5>}</h5>
+                    <br>
+                    <br>
+                    <br>
+                    <br><br>
+                    <br>
+                    <br>
+                    <br>
+                <h5>generateNums(startVal, endVal) {</h5>
+                    <p>
+                        This funciton will used the parsed numbers and create an array filled with the range that was selected.
+                        It uses a for loop to fill the array with the parameters being based in for the range.
+                    </p>
+                    <h5>}</h5>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                <h5>displayNums(nums) {</h5>
+                    <p>The parameter here is refrencing to the variable that's created for the generateNums function. 
+                        It is taking that entire array and now filling a table with it. We have then created a className class that is used by CSS to make the even numbers bold.</p>
+                    <h5>}</h5>
+                </p>
             </div>
         </div>
     </div>
 </main>
 
- <footer class="footer mt-auto py-3">
+<footer class="footer mt-auto py-3">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col text-light d-flex align-items-center justify-content-start">
+        <div class="row row-cols-1 row-cols-md-3 gy-2">
+            <!--TM-->
+            <div class="col order-last order-md-first text-light d-flex align-items-center justify-content-start">
                 <div>
                     <span class="text-muted">&copy;2024 CJ Bowman | CJBowman@live.com</span>
                 </div>
             </div>
-            <div class="col d-flex align-items-center justify-content-center">
+            <!--Logo-->
+            <div class="col d-flex align-items-center justify-content-start justify-content-md-center text-light">
                 <img src="css/images/Sessions logo.PNG" alt="filler logo" height="24">
             </div>
-            <div class="col d-flex align-items-center justify-content-end">
+            <!--Icons-->
+            <div class="col d-flex align-items-center justify-content-start justify-content-md-end">
                 <div class="row">
-                    <div class="col">
+                    <div class="social col">
                         <a href="https://www.linkedin.com/in/cj-bowman-1bbb1890/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
                     </div>
-                    <div class="col">
+                    <div class="social col">
                         <a href="https://github.com/ceejster" target="_blank"><i class="fab fa-github fa-2x"></i></a>
                     </div>
                 </div>
